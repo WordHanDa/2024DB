@@ -17,13 +17,13 @@ if (!empty($_GET['val'])) {
     $val = $_GET['val'];
 }
 if (!empty($_GET['val2'])) {
-    $val = $_GET['val2'];
+    $val2 = $_GET['val2'];
 }
 if (!empty($_GET['val3'])) {
-    $val = $_GET['val3'];
+    $val3 = $_GET['val3'];
 }
 if (!empty($_GET['val4'])) {
-    $val = $_GET['val4'];
+    $val4 = $_GET['val4'];
 }
 
 $list = array(); // 存放查詢結果的陣列
