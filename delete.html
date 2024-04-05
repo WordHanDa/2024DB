@@ -39,51 +39,50 @@
   <button id='del_road_button' type="button" onclick="Delete('deleteroad')">刪除</button>
 </body> 
 <script>
-    $(function() { // 當網頁載入完成後執行以下程式
-        $.ajax({ // 使用 ajax 方法發送請求
-            type: "GET",
-            url: "action.php", // 請求的網址
-            data: { act: 'city' }, // 傳遞的參數
-            dataType: "json", // 回傳的資料型態
-            success: function(result) { // 如果請求成功，執行以下程式
-                for (var i = 0; i < result.length; i++) {
-                    $("#city").append("<option value='" + result[i]['city_id'] + "'>" + result[i]['city'] + "</option>"); // 將資料加入城市選擇列表
-                    $("#city2").append("<option value='" + result[i]['city_id'] + "'>" + result[i]['city'] + "</option>"); // 將資料加入城市選擇列表
-                    $("#city3").append("<option value='" + result[i]['city_id'] + "'>" + result[i]['city'] + "</option>"); // 將資料加入城市選擇列表
-                }
-            },
-            error: function(xhr, status, msg) { // 如果請求失敗，執行以下程式
-                console.error(xhr); // 顯示錯誤訊息
-                console.error(msg);
-            }
-        });
-        
+  $(function() { // 當網頁載入完成後執行以下程式
+    $.ajax({ // 使用 ajax 方法發送請求
+      type: "GET",
+      url: "action.php", // 請求的網址
+      data: { act: 'city' }, // 傳遞的參數
+      dataType: "json", // 回傳的資料型態
+      success: function(result) { // 如果請求成功，執行以下程式
+        for (var i = 0; i < result.length; i++) {
+          $("#city").append("<option value='" + result[i]['city_id'] + "'>" + result[i]['city'] + "</option>"); // 將資料加入城市選擇列表
+          $("#city2").append("<option value='" + result[i]['city_id'] + "'>" + result[i]['city'] + "</option>"); // 將資料加入城市選擇列表
+          $("#city3").append("<option value='" + result[i]['city_id'] + "'>" + result[i]['city'] + "</option>"); // 將資料加入城市選擇列表
+          }
+        },
+      error: function(xhr, status, msg) { // 如果請求失敗，執行以下程式
+        console.error(xhr); // 顯示錯誤訊息
+        console.error(msg);
+      }
     });
+        
+  });
 
 
-    $('#city2').change(function() { // 當縣市選擇列表的選項發生改變時執行以下程式
-    $('#site_id').empty().append("<option value=''>請選擇</option>"); // 清空鄉鎮[市]區選擇列表，並加入預設選項
+  $('#city2').change(function() {
+    $('#site_id').empty().append("<option value=''>請選擇</option>");
     $.ajax({
         type: "GET",
         url: 'action.php',
         data: { act: 'site_id', val: $('#city2').val()},
         dataType: "json",
         success: function(result) {
-
-          if(result == ""){
-            $('#site_id').val($('option:first').val());
-          }
-          
-          for (var i = 0; i < result.length; i++) { // 依據縣市回傳的值去改變地區的內容
-              $("#site_id").append("<option value='" + result[i]['site_id'] + "'>" + result[i]['site'] + "</option>");
-          }
+            if(result == ""){
+                $('#site_id').val($('option:first').val());
+            }
+            for (var i = 0; i < result.length; i++) {
+                $("#site_id").append("<option value='" + result[i]['site_id'] + "'>" + result[i]['site'] + "</option>");
+            }
         },
         error: function(xhr, status, msg) {
             console.error(xhr);
             console.error(msg);
         }
     });
-  });
+});
+
 
   
   $('#city3').change(function() { // 當縣市選擇列表的選項發生改變時執行以下程式
