@@ -105,8 +105,8 @@
           if(result == ""){
             $('#site_id').val($('option:first').val());
           }
-
-          for (var i = 0; i < result.length; i++) { // 依據地區回傳的值去改變道路的內容
+           // 依據地區回傳的值去改變道路的內容
+          for (var i = 0; i < result.length; i++) {
               $("#site_id").append("<option value='" + result[i]['site_id'] + "'>" + result[i]['site'] + "</option>");
           }
         },
