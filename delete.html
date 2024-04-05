@@ -61,29 +61,28 @@
   });
 
 
-  $('#city2').change(function() { // 當縣市選擇列表的選項發生改變時執行以下程式
-    $('#site_id').empty().append("<option value=''>請選擇</option>"); // 清空鄉鎮[市]區選擇列表，並加入預設選項
+  $('#city2').change(function() {
+    $('#site_id').empty().append("<option value=''>請選擇</option>");
     $.ajax({
         type: "GET",
         url: 'action.php',
         data: { act: 'site_id', val: $('#city2').val()},
         dataType: "json",
         success: function(result) {
-
-          if(result == ""){
-            $('#site_id').val($('option:first').val());
-          }
-          
-          for (var i = 0; i < result.length; i++) { // 依據縣市回傳的值去改變地區的內容
-              $("#site_id").append("<option value='" + result[i]['site_id'] + "'>" + result[i]['site'] + "</option>");
-          }
+            if(result == ""){
+                $('#site_id').val($('option:first').val());
+            }
+            for (var i = 0; i < result.length; i++) {
+                $("#site_id").append("<option value='" + result[i]['site_id'] + "'>" + result[i]['site'] + "</option>");
+            }
         },
         error: function(xhr, status, msg) {
             console.error(xhr);
             console.error(msg);
         }
     });
-  });
+});
+
 
   
   $('#city3').change(function() { // 當縣市選擇列表的選項發生改變時執行以下程式
