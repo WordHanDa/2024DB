@@ -4,27 +4,40 @@
 <head>
   <meta http-equiv="content-type" content="text/html"; charset="UTF-8"> 
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
-  <title>區域</title>
+  <title>刪除區域</title>
 </head>
+
 <body>
-  縣市
+  請選擇欲刪除城市
   <select id="city"> 
     <option value="">請選擇</option> 
   </select> 
   <br>
-  鄉鎮[市]區
+  <button id='del_city_button' type="button" onclick="Delete('deletecity');resetcity();">刪除</button>
+  <br>
+  請選擇欲刪除地區
+  <select id="city"> 
+    <option value="">請選擇</option>
+  </select> 
   <select id="site_id"> 
     <option value="">請選擇</option>
   </select> 
   <br>
-  路(街)名或鄉里名稱
+  <button id='del_site_button' type="button" onclick="Delete('deletesite')">刪除</button>
+  <br>
+  請選擇欲刪除道路
+  <select id="city3"> 
+    <option value="">請選擇</option>
+  </select> 
+  <select id="site_id2"> 
+    <option value="">請選擇</option>
+  </select> 
   <select id="road">
     <option value="">請選擇</option> 
   </select>
   <br>
-  地址：
-  <input id='input' value="" size="35"> 
-  </body> 
+  <button id='del_road_button' type="button" onclick="Delete('deleteroad')">刪除</button>
+</body> 
 <script>
     $(function() { // 當網頁載入完成後執行以下程式
         $.ajax({ // 使用 ajax 方法發送請求
