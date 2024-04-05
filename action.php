@@ -80,7 +80,7 @@ switch ($action) {
     
     case 'updateroad': // 查詢道路資料
         $list=array();
-        $sql = "UPDATE road SET site_id='$val2', road='$val3' WHERE site_id='$val' AND road='$val2'";
+        $sql = "UPDATE road SET site_id='$val3', road='$val4' WHERE site_id='$val' AND road='$val2'";
         mysqli_query($link, $sql);
         break;
     case 'deletecity': // 查詢道路資料
