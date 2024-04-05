@@ -59,12 +59,12 @@ switch ($action) {
         break;
 
     case 'insertsite': // 查詢道路資料
-        $sql = "INSERT INTO city VALUES('$val','$val2','$val3')";
+        $sql = "INSERT INTO site VALUES('$val','$val2','$val3')";
         mysqli_query($link, $sql);
         break;
 
     case 'insertroad': // 查詢道路資料
-        $sql = "INSERT INTO city VALUES('$val','$val2')";
+        $sql = "INSERT INTO road VALUES('$val','$val2')";
         mysqli_query($link, $sql);
         break;
     
@@ -81,6 +81,21 @@ switch ($action) {
     case 'updateroad': // 查詢道路資料
         $list=array();
         $sql = "UPDATE road SET site_id='$val2', road='$val3' WHERE site_id='$val' AND road='$val2'";
+        mysqli_query($link, $sql);
+        break;
+    case 'deletecity': // 查詢道路資料
+        $sql = "DELETE FROM city WHERE city_id='$val'";
+        mysqli_query($link, $sql);
+        break;
+    
+    case 'deletesite': // 查詢道路資料
+        $sql = "DELETE FROM site WHERE site_id='$val'";
+        mysqli_query($link, $sql);
+        break;
+        
+    case 'deleteroad': // 查詢道路資料
+        $list=array();
+        $sql = "DELETE FROM city WHERE site_id='$val' AND road = '$val2'";
         mysqli_query($link, $sql);
         break;
 }
