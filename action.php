@@ -70,7 +70,7 @@ switch ($action) {
     
     case 'updatecity': // 查詢道路資料
         $sql = "UPDATE city SET city_id='$val2', city='$val3' WHERE city_id='$val'";
-        mysqli_query($link, $sql);
+        $result = mysqli_query($link, $sql);
         break;
     
     case 'updatesite': // 查詢道路資料
