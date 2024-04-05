@@ -62,7 +62,6 @@
 
 
   $('#city2').change(function() { // 當縣市選擇列表的選項發生改變時執行以下程式
-    $('#site_id2').empty().append("<option value=''>請選擇</option>"); // 清空鄉鎮[市]區選擇列表，並加入預設選項
     $('#road').empty().append("<option value=''>請選擇</option>"); // 清空道路選擇列表，並加入預設選項
     $.ajax({
       type: "GET",
