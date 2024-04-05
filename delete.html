@@ -62,11 +62,11 @@
 
 
   $('#city2').change(function() { // 當縣市選擇列表的選項發生改變時執行以下程式
-    $('#road').empty().append("<option value=''>請選擇</option>"); // 清空道路選擇列表，並加入預設選項
+    $('#site_id').empty().append("<option value=''>請選擇</option>"); // 清空鄉鎮[市]區選擇列表，並加入預設選項
     $.ajax({
       type: "GET",
       url: 'action.php',
-      data: { act: 'site_id', val: $('#city2').val() },
+      data: { act: 'site_id', val: $('#city').val() },
       dataType: "json",
       success: function(result) {
 
@@ -75,7 +75,7 @@
         }
 
         for (var i = 0; i < result.length; i++) { // 依據縣市回傳的值去改變地區的內容
-            $("#site_id2").append("<option value='" + result[i]['site_id'] + "'>" + result[i]['site'] + "</option>");
+            $("#site_id").append("<option value='" + result[i]['site_id'] + "'>" + result[i]['site'] + "</option>");
         }
       },
       error: function(xhr, status, msg) {
